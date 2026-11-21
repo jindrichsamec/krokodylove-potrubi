@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Krokodýli" />
+    <meta name="theme-color" content="#DDEFE8" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./icon.svg" />
+    <link rel="apple-touch-icon" href="./icon-180.png" />
+    <title>Krokodýlové potrubí</title>
+  </head>
+  <body>
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-play" viewBox="0 0 48 48"><path d="M17 11 L37 24 L17 37 Z" fill="currentColor" stroke="currentColor" stroke-width="5" stroke-linejoin="round" /></symbol>
+        <symbol id="i-next" viewBox="0 0 48 48"><path d="M10 24 H36 M26 13 L37 24 L26 35" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+        <symbol id="i-back" viewBox="0 0 48 48"><path d="M38 24 H12 M22 13 L11 24 L22 35" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+        <symbol id="i-levels" viewBox="0 0 48 48">
+          <g fill="currentColor"><rect x="9" y="9" width="12" height="12" rx="4" /><rect x="27" y="9" width="12" height="12" rx="4" /><rect x="9" y="27" width="12" height="12" rx="4" /><rect x="27" y="27" width="12" height="12" rx="4" /></g>
+        </symbol>
+        <symbol id="i-sound" viewBox="0 0 48 48">
+          <path d="M8 19 H15 L25 11 V37 L15 29 H8 Z" fill="currentColor" stroke="currentColor" stroke-width="4" stroke-linejoin="round" />
+          <path class="sound-waves" d="M32 17 Q37 24 32 31 M37 12 Q46 24 37 36" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" />
+          <path class="sound-cross" d="M32 18 L42 30 M42 18 L32 30" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" />
+        </symbol>
+      </defs>
+    </svg>
+
+    <main id="app">
+      <section id="screen-title" class="screen is-active">
+        <div class="title-sky"><div id="title-art" class="title-art"></div></div>
+        <div class="title-ground">
+          <h1 class="title">Krokodýlové potrubí</h1>
+          <div class="title-actions">
+            <button id="btn-levels" class="btn" aria-label="Vybrat úroveň"><svg><use href="#i-levels" /></svg></button>
+            <button id="btn-play" class="btn btn-big" aria-label="Hrát"><svg><use href="#i-play" /></svg></button>
+            <button class="btn js-sound" aria-label="Zvuk"><svg><use href="#i-sound" /></svg></button>
+          </div>
+        </div>
+      </section>
+
+      <section id="screen-map" class="screen">
+        <header class="bar">
+          <button id="btn-map-back" class="btn" aria-label="Zpět"><svg><use href="#i-back" /></svg></button>
+          <button class="btn js-sound" aria-label="Zvuk"><svg><use href="#i-sound" /></svg></button>
+        </header>
+        <div id="map-list" class="map-list"></div>
+      </section>
+
+      <section id="screen-game" class="screen">
+        <header class="bar">
+          <button id="btn-to-map" class="btn" aria-label="Vybrat úroveň"><svg><use href="#i-levels" /></svg></button>
+          <div id="level-badge" class="level-badge" aria-label="Úroveň"></div>
+          <button class="btn js-sound" aria-label="Zvuk"><svg><use href="#i-sound" /></svg></button>
+        </header>
+        <div id="stage" class="stage"></div>
+        <button id="btn-next" class="btn btn-big btn-next" aria-label="Další úroveň" tabindex="-1">
+          <svg class="icon-next"><use href="#i-next" /></svg>
+          <svg class="icon-levels"><use href="#i-levels" /></svg>
+        </button>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
